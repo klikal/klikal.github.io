@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="KlikAl — заказы с Poizon из Китая в Казахстан">
+<meta name="description" content="KlikAl — оригинальные вещи из Китая с доставкой в Казахстан">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>KlikAl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,17 @@ p{margin:0}
 .steps b{display:block}
 .steps small{color:var(--muted);font-size:.92rem}
 
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.actions{display:grid;grid-template-columns:1fr;gap:10px}
+.brands{display:flex;flex-direction:column;gap:14px}
+.brands-head{display:flex;flex-direction:column;gap:6px}
+.brands-head p{color:var(--muted)}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.brand-grid a{position:relative;background:var(--surface);color:var(--ink);text-decoration:none;font-family:var(--f-display);font-size:1rem;line-height:1.1;padding:18px 12px;border-radius:14px;min-height:72px;display:flex;align-items:flex-end;border:2px solid transparent;transition:border-color .15s,transform .15s}
+.brand-grid a:hover{border-color:var(--accent)}
+.brand-grid a:active{transform:scale(.97)}
+.brand-grid a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.brand-grid i{position:absolute;top:8px;right:10px;font-style:normal;font-family:var(--f-body);color:var(--muted);font-size:.85rem}
+@media (max-width:360px){.brand-grid{grid-template-columns:1fr 1fr}}
 .btn{appearance:none;border:0;cursor:pointer;font:800 1rem var(--f-body);padding:16px 18px;border-radius:14px;text-decoration:none;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;transition:transform .15s}
 .btn:active{transform:scale(.97)}
@@ -89,16 +99,16 @@ p{margin:0}
   <header class="hero">
     <div class="stamp">из Китая<br>в Казахстан</div>
     <div class="logo">Klik<span>Al</span></div>
-    <h1>Нашёл вещь на <span>Poizon?</span> Я привезу.</h1>
+    <h1>Нашёл вещь? <span>Я привезу</span> из Китая.</h1>
     <p class="lead">Оригинальные кроссовки, одежда и аксессуары из Китая с доставкой в Казахстан.</p>
   </header>
 
   <section style="display:flex;flex-direction:column;gap:12px">
     <span class="eyebrow">Как это работает</span>
     <ol class="steps">
-      <li><div><b>Выбираешь товар на Poizon</b><small>Копируешь ссылку или делаешь скрин.</small></div></li>
-      <li><div><b>Пишешь мне в WhatsApp</b><small>Отправляешь ссылку, размер и цвет.</small></div></li>
-      <li><div><b>Я заказываю</b><small>Называю итоговую цену, ты оплачиваешь, я выкупаю.</small></div></li>
+      <li><div><b>Выбираешь товар</b><small>На сайте бренда, в магазине или в соцсетях. Делаешь скрин, фото или копируешь ссылку.</small></div></li>
+      <li><div><b>Пишешь мне в WhatsApp</b><small>Отправляешь скрин или фото, размер и цвет.</small></div></li>
+      <li><div><b>Я заказываю</b><small>Нахожу этот товар в Китае, называю итоговую цену, ты оплачиваешь.</small></div></li>
       <li><div><b>Получаешь посылку</b><small>Через 10–15 дней товар у тебя.</small></div></li>
     </ol>
   </section>
@@ -108,8 +118,22 @@ p{margin:0}
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
       Заказать
     </a>
-    <a class="btn btn-ghost" href="https://m.dewu.com/" target="_blank" rel="noopener">Сайт Poizon ↗</a>
   </div>
+
+  <section class="brands">
+    <div class="brands-head">
+      <h2>Выбери модель</h2>
+      <p>Смотри новинки на официальных сайтах, делай скрин и присылай мне.</p>
+    </div>
+    <div class="brand-grid">
+      <a href="https://www.nike.com/" target="_blank" rel="noopener">Nike<i>↗</i></a>
+      <a href="https://www.adidas.com/" target="_blank" rel="noopener">Adidas<i>↗</i></a>
+      <a href="https://www.newbalance.com/" target="_blank" rel="noopener">New Balance<i>↗</i></a>
+      <a href="https://www.puma.com/" target="_blank" rel="noopener">Puma<i>↗</i></a>
+      <a href="https://www.reebok.com/" target="_blank" rel="noopener">Reebok<i>↗</i></a>
+      <a href="https://www.asics.com/" target="_blank" rel="noopener">Asics<i>↗</i></a>
+    </div>
+  </section>
 
   <section class="photo">
     <div class="photo-icon" aria-hidden="true">
@@ -128,7 +152,7 @@ p{margin:0}
       <li><span><b>Цена.</b> Итоговую сумму в тенге называю до оплаты.
         <span class="formula"><span>товар</span>+<span>карго</span>+<span class="me">мои услуги 5 000 ₸</span></span></span></li>
       <li><span><b>Ожидание 10–15 дней.</b> Иногда бывают задержки на границе, я сразу предупреждаю.</span></li>
-      <li><span><b>Точный размер.</b> Проверь размер по таблице на Poizon (EU / US / см стопы). Обмена и возврата по размеру нет.</span></li>    </ul>
+      <li><span><b>Точный размер.</b> Проверь размер по таблице бренда (EU / US / см стопы). Обмена и возврата по размеру нет.</span></li>    </ul>
   </section>
 
   <div class="phone">
