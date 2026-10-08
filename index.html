@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="KlikAl — оригинальные вещи из Китая с доставкой в Казахстан">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2F4BFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KlikAl">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>KlikAl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -87,6 +95,12 @@ p{margin:0}
 .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
   background:linear-gradient(to top,var(--bg) 70%,transparent)}
 .bar .btn{width:100%;max-width:528px;margin:0 auto;display:flex;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.install{background:var(--surface);border-radius:20px;padding:18px;display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center}
+.install img{width:52px;height:52px;border-radius:14px}
+.install-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.install-body b{font-size:1.05rem}
+.install-body p{color:var(--muted);font-size:.9rem}
+.install .btn{padding:12px 16px}
 .phone{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;color:var(--muted);font-size:.92rem;background:var(--surface);border-radius:20px;padding:20px}
 .phone b{font-family:var(--f-mono);color:var(--ink);font-size:1.5rem;user-select:all}
 @media (max-width:360px){.actions{grid-template-columns:1fr}.stamp{position:static;align-self:flex-start}}
@@ -146,6 +160,15 @@ p{margin:0}
     </div>
   </section>
 
+  <section class="install" id="install" hidden>
+    <img src="icon-192.png" alt="">
+    <div class="install-body">
+      <b>Установи KlikAl на телефон</b>
+      <p id="install-text">Иконка появится на главном экране, как обычное приложение.</p>
+      <button class="btn btn-ghost" type="button" id="install-btn">Установить</button>
+    </div>
+  </section>
+
   <section class="label" id="rules">
     <div class="label-head"><h2>Условия</h2><div class="barcode" aria-hidden="true"></div></div>
     <ul class="rules">
@@ -177,6 +200,19 @@ document.getElementById("copy").addEventListener("click", () => {
   const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("num")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Номер выделен, скопируй"; };
   try { navigator.clipboard.writeText("87007121314").then(() => b.textContent = "Скопировано ✓", sel); } catch (e) { sel(); }
 });
+
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+(() => {
+  const box = document.getElementById("install"), btn = document.getElementById("install-btn"), txt = document.getElementById("install-text");
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if (standalone) return;
+  const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  let ev = null;
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); ev = e; box.hidden = false; });
+  if (ios) { box.hidden = false; btn.hidden = true;
+    txt.innerHTML = "Нажми <b>Поделиться</b> внизу Safari, затем <b>«На экран Домой»</b>."; }
+  btn.addEventListener("click", async () => { if (!ev) return; ev.prompt(); await ev.userChoice; ev = null; box.hidden = true; });
+})();
 </script>
 </body>
 </html>
