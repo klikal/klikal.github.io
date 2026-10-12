@@ -60,13 +60,14 @@ p{margin:0}
 .brands{display:flex;flex-direction:column;gap:14px}
 .brands-head{display:flex;flex-direction:column;gap:6px}
 .brands-head p{color:var(--muted)}
-.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.brand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.brand-grid .wide{grid-column:1 / -1;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:4px}
+.brand-grid small{font-family:var(--f-body);font-size:.8rem;color:var(--muted);font-weight:500}
 .brand-grid a{position:relative;background:var(--surface);color:var(--ink);text-decoration:none;font-family:var(--f-display);font-size:1rem;line-height:1.1;padding:18px 12px;border-radius:14px;min-height:72px;display:flex;align-items:flex-end;border:2px solid transparent;transition:border-color .15s,transform .15s}
 .brand-grid a:hover{border-color:var(--accent)}
 .brand-grid a:active{transform:scale(.97)}
 .brand-grid a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .brand-grid i{position:absolute;top:8px;right:10px;font-style:normal;font-family:var(--f-body);color:var(--muted);font-size:.85rem}
-@media (max-width:360px){.brand-grid{grid-template-columns:1fr 1fr}}
 .btn{appearance:none;border:0;cursor:pointer;font:800 1rem var(--f-body);padding:16px 18px;border-radius:14px;text-decoration:none;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;transition:transform .15s}
 .btn:active{transform:scale(.97)}
@@ -140,12 +141,11 @@ p{margin:0}
       <p>Смотри новинки на официальных сайтах, делай скрин и присылай мне.</p>
     </div>
     <div class="brand-grid">
+      <a href="https://www.adidas.com/us" target="_blank" rel="noopener">Adidas<i>↗</i></a>
       <a href="https://www.nike.com/" target="_blank" rel="noopener">Nike<i>↗</i></a>
-      <a href="https://www.adidas.com/" target="_blank" rel="noopener">Adidas<i>↗</i></a>
       <a href="https://www.newbalance.com/" target="_blank" rel="noopener">New Balance<i>↗</i></a>
-      <a href="https://www.puma.com/" target="_blank" rel="noopener">Puma<i>↗</i></a>
-      <a href="https://www.reebok.com/" target="_blank" rel="noopener">Reebok<i>↗</i></a>
-      <a href="https://www.asics.com/" target="_blank" rel="noopener">Asics<i>↗</i></a>
+      <a href="https://www.underarmour.com/en-us/" target="_blank" rel="noopener">Under Armour<i>↗</i></a>
+      <a class="wide" href="https://intertop.kz/ru-kz/" target="_blank" rel="noopener">Intertop<small>много брендов, цены в тенге</small><i>↗</i></a>
     </div>
   </section>
 
